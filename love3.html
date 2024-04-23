@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表白页面</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .confession {
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 1000; /* Ensure text is above the floating elements */
+            position: relative;
+        }
+        h1 {
+            color: #e63946;
+            font-size: 2em;
+        }
+        p {
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        /* Floating elements */
+        .floating {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+        .element, .heart {
+            position: absolute;
+            animation: float 10s linear infinite;
+            opacity: 0;
+        }
+
+        .element {
+            font-size: 1.5rem;
+            color: #ff477e;
+        }
+
+        .heart {
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            transform: rotate(-45deg);
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -15px;
+            left: 0;
+        }
+        .heart::after {
+            top: 0;
+            left: 15px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(-50px) translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100vw) translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="confession">
+    <h1>亲爱的，我爱你！</h1>
+    <p>从见到你的第一眼，我就知道你是大聪明</p >
+</div>
+
+<div class="floating">
+    <!-- Multiple elements for dynamic background -->
+    <div class="element" style="left: 10%; animation-delay: 0s;">小唐</div>
+    <div class="element" style="left: 30%; animation-delay: 3s;">小唐</div>
+    <div class="element" style="left: 50%; animation-delay: 5s;">小唐</div>
+    <div class="element" style="left: 70%; animation-delay: 7s;">小唐</div>
+    <div class="element" style="left: 90%; animation-delay: 9s;">小唐</div>
+    <!-- Hearts -->
+    <div class="heart" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 40%; animation-delay: 4s;"></div>
+    <div class="heart" style="left: 60%; animation-delay: 6s;"></div>
+    <div class="heart" style="left: 80%; animation-delay: 8s;"></div>
+</div>
+</body>
+</html>
